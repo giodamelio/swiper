@@ -16,6 +16,7 @@ const serverlessConfiguration: AWS = {
     runtime: 'nodejs12.x',
     apiGateway: {
       minimumCompressionSize: 1024,
+      shouldStartNameWithService: true,
     },
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
