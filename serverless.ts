@@ -1,7 +1,7 @@
 import type { AWS } from '@serverless/typescript';
 
 const serverlessConfiguration: AWS = {
-  service: 'haha',
+  service: 'swiper',
   frameworkVersion: '2',
   custom: {
     webpack: {
