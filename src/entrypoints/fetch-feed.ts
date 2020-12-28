@@ -19,6 +19,11 @@ export const handler: APIGatewayProxyHandler = async (event, _context) => {
     const baseUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=';
 
     const feedRes = await fetch(`${baseUrl}${body.channelId}`);
+
+    if (!feedRes.ok) {
+      throw badRequest('Bad response from YouTube');
+    }
+
     const feed = await feedRes.text();
 
     return {
