@@ -23,13 +23,13 @@ const serverlessConfiguration: AWS = {
     },
   },
   functions: {
-    hello: {
-      handler: 'handler.hello',
+    'fetch-feed': {
+      handler: 'src/entrypoints/fetch-feed.handler',
       events: [
         {
           http: {
-            method: 'get',
-            path: 'hello',
+            method: 'post',
+            path: 'fetch-feed',
           }
         }
       ]
