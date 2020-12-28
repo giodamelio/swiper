@@ -1,21 +1,10 @@
 import { APIGatewayProxyHandler } from 'aws-lambda';
 import fetch from 'node-fetch';
 import { badRequest } from '@hapi/boom';
-import { parseString } from 'xml2js';
+
+import { parseXML } from '../utils/xml';
 
 import 'source-map-support/register';
-
-function parseXML(input: string): Promise<Record<string, any>> {
-  return new Promise((resolve, reject) => {
-    parseString(input, { explicitArray: false }, (err, result) => {
-      if (err) {
-        return reject(err);
-      }
-
-      return resolve(result);
-    });
-  });
-}
 
 export const handler: APIGatewayProxyHandler = async (event, _context) => {
   try {
