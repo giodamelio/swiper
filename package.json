@@ -7,6 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@hapi/boom": "^9.1.1",
+    "feedparser": "^2.2.10",
     "node-fetch": "^2.6.1",
     "source-map-support": "^0.5.19"
   },
