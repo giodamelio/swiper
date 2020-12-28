@@ -34,12 +34,22 @@ export const handler: APIGatewayProxyHandler = async (event, _context) => {
       body: JSON.stringify(feed.feed.entry.map(({title}) => title)),
     };
   } catch (err) {
+    // Catch an expected Boom error
+    if (err.isBoom) {
+      return {
+        statusCode: err.output.statusCode,
+        body: JSON.stringify(err.output.payload),
+      };
+    }
+
+    // If it is not an expected error
     return {
-      statusCode: err.statusCode,
+      statusCode: 500,
       body: JSON.stringify({
-        error: err.error,
+        statusCode: 400,
+        error: 'Internal Server Error',
         message: err.message,
-      }),
+      })
     };
   }
 }
