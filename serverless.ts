@@ -34,7 +34,30 @@ const serverlessConfiguration: AWS = {
         }
       ]
     }
+  },
+  resources: {
+    Resources: {
+      videosTable: {
+        Type: 'AWS::DynamoDB::Table',
+        Properties: {
+          TableName: 'swiper-videos',
+          AttributeDefinitions: [
+            {
+              AttributeName: 'youtubeId',
+              AttributeType: 'S'
+            }
+          ],
+          KeySchema: [
+            {
+              AttributeName: 'youtubeId',
+              KeyType: 'HASH'
+            }
+          ],
+          BillingMode: 'PAY_PER_REQUEST'
+        }
+      }
+    }
   }
-}
+};
 
 module.exports = serverlessConfiguration;
