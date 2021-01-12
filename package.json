@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/giodamelio/swiper/issues"
   },
-  "homepage": "https://github.com/giodamelio/swiper#readme"
+  "homepage": "https://github.com/giodamelio/swiper#readme",
+  "devDependencies": {
+    "typescript": "^4.1.3"
+  }
 }
