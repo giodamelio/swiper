@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/giodamelio/swiper#readme",
   "devDependencies": {
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb-base-typescript-prettier": "^4.1.0",
     "prettier": "^2.2.1",
     "typescript": "^4.1.3"
   }
