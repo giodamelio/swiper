@@ -3,7 +3,7 @@ let
 in
 pkgs.mkShell {
   buildInputs = [
-    pkgs.nodejs-12_x
+    pkgs.nodejs-14_x
 
     # Development tools
     pkgs.just
