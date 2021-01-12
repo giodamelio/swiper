@@ -6,7 +6,7 @@ app.use(async (ctx) => {
   ctx.body = 'Hello World!';
 });
 
-app.listen(process.env.PORT || 3141);
+export default app;
 
 // eslint-disable-next-line import/prefer-default-export
 export function badAdd(a: number, b: number): number {
