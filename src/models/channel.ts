@@ -3,10 +3,12 @@ import { Entity, Column, BaseEntity, OneToMany, PrimaryColumn } from 'typeorm';
 
 import Video from './video';
 
+export type ChannelId = string;
+
 @Entity()
 export default class Channel extends BaseEntity {
   @PrimaryColumn()
-  id!: string;
+  id!: ChannelId;
 
   @Column()
   name!: string;
