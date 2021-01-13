@@ -1,18 +1,25 @@
+// Shim for TypeORM
+import 'reflect-metadata';
+
 import Koa from 'koa';
 import Router from 'koa-router';
 
-const app = new Koa();
-const router = new Router();
+import connectDatabase from './database';
 
-router.get('/', async (ctx) => {
-  ctx.body = 'Hello World!';
-});
+export default async function main(): Promise<Koa> {
+  const app = new Koa();
+  const router = new Router();
 
-app.use(router.routes()).use(router.allowedMethods());
+  const db = await connectDatabase();
 
-export default app;
+  router.get('/tables', async (ctx) => {
+    const tables = await db.manager.query(
+      'SELECT * FROM sqlite_master WHERE type = "table" AND name NOT LIKE "sqlite_%"'
+    );
+    ctx.body = tables;
+  });
 
-// eslint-disable-next-line import/prefer-default-export
-export function badAdd(a: number, b: number): number {
-  return a + b;
+  app.use(router.routes()).use(router.allowedMethods());
+
+  return app;
 }

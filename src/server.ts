@@ -1,5 +1,13 @@
-import app from './index';
+import createApp from './index';
 import config from './config';
 
-console.log(`Running at http://localhost:${config.get('port')}`);
-app.listen(config.get('port'));
+async function main() {
+  const app = await createApp();
+
+  console.log(`Running at http://localhost:${config.get('port')}`);
+  app.listen(config.get('port'));
+}
+
+main().catch((error) => {
+  console.log(error);
+});

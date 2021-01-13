@@ -15,6 +15,17 @@ const config = convict({
     default: 3141,
     env: 'PORT',
   },
+  database: {
+    type: {
+      doc: 'Database type',
+      format: ['sqlite'],
+      default: 'sqlite',
+    },
+    database: {
+      doc: 'Path to the database',
+      default: 'db.sqlite',
+    },
+  },
 });
 
 const env = config.get('env');
