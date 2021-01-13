@@ -1,3 +1,5 @@
 import app from './index';
+import config from './config';
 
-app.listen(process.env.PORT || 3141);
+console.log(`Running at http://localhost:${config.get('port')}`);
+app.listen(config.get('port'));
